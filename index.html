@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="it">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Power Balls</title>
+    <meta name="description" content="Simulazione interattiva di palline che rimbalzano">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="style/my-normalize.css">
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" title="home"><h1>POWER BALLS</h1></a>
+    </header>
+
+    <!--contenitore palline-->
+    <div id = "container-balls"></div>
+
+    <!--sidebar-->
+    <div id = "sidebar">
+
+        <h2>Modalità CREAZIONE</h2>
+
+        <!--modifica colore-->
+        <div id="container-input-color">
+
+            <!--il type color viene sostiutuito da 5 div colorati in IE, tramite JS-->
+            <input type="color" title="Modifica il colore">
+        </div>
+                
+        <!--anteprima immagine-->
+        <div id="image-preview">
+            <div class="ball center"></div>
+        </div>
+
+        <!--modifica dimensione-->
+        <div>
+            <button id="increase-size" title="Aumenta dimensione, sarà più difficile lanciarla!"> + </button> 
+            <button id="decrease-size" title="Riduci dimensione, sarà più facile lanciarla!"> - </button>
+        </div>
+
+        <!--Modalità selezione-->
+        <div id = "container-ball-properties" class="statistics">
+            <h2>MODALITA' SELEZIONE</h2>
+            <ul>
+                <li>Id:<span></span><span id = "delete" title="Elimina la pallina">❌</span></li>
+                <li>Dimensione:<span></span></li>
+                <li>Colore:<span></span></li>
+                <li>Velocità iniziale:<span></span></li>
+                <li>Velocità:<span></span></li>
+                <li>Posizione:<span></span></li>
+            </ul>
+        </div>
+
+        <!--info simulazione-->
+        <div id = "container-simulation-info" class="statistics">
+            <h2>INFO SIMULAZIONE</h2>
+            <ul>
+                <li>Palline generate:<span></span></li>
+                <li>Palline eliminate:<span></span></li>
+                <li>Palline correnti:<span></span></li>
+                <li>Palline fermate:<span></span></li>
+                <li>Impatti:<span></span></li>
+            </ul>
+        </div>
+
+        <!--Gravità-->
+        <div id="gravity-on-off" title="Attiva la gravità!">
+            GRAVITA'
+            <div id="gravity-led" class="led"></div>
+        </div>
+
+        <!--Modalità-->
+        <div>
+            <div id="info-simulation" class = "menu" title="Informazioni simulazione(Q)">⭐</div>
+            <div id="creation-mode" class = "menu" title="Modalità creazione(W)">🌱</div>
+            <div id="selection-mode" class = "menu" title="Modalità selezione(E)">🕵</div> 
+        </div>
+        
+
+    </div><!-- #sidebar-->
+
+    <!--menu simulazione-->
+    <div id = "menu-simulazione">
+        <button id="decrease-simulation-speed" title="Diminuisci velocità simulazione">⏪</button>
+        <button id="simulation-start-pause" title="Ferma o riprendi simulazione">⏯</button>
+        <button id="increase-simulation-speed" title="Aumenta velocità simulazione">⏩</button>
+        
+        <div>
+            <!--led per segnalare play/pausa-->
+            <div id="simulation-led" class="led"></div>
+            x<span id = "speed"></span>
+        </div>
+
+        <!--Audio-->
+        <button id="audio" title="Audio ON/OFF">🔊</button>
+    </div>
+
+
+    <!--shortcuts-->
+    <div id="container-shortcuts">
+        <div>
+            <h3><span class = "shortcuts">Q</span> INFO SIMULAZIONE⭐</h3>
+            <span class = "shortcuts">⇦</span> Diminuisci Velocità
+            <span class = "shortcuts">⇨</span> Aumenta Velocità
+            <span class = "shortcuts space">spazio</span> Stop-Play
+            <span class = "shortcuts">G</span> Gravità ON/OFF
+            <span class = "shortcuts">P</span> Audio ON/OFF
+        </div>
+        <div>
+            <h3><span class = "shortcuts">W</span> MODALITA' CREAZIONE🌱</h3>
+            <span class = "shortcuts">A</span> Diminuisci Grandezza
+            <span class = "shortcuts">S</span> Aumenta Grandezza
+            
+        </div>
+        <div>        
+            <h3><span class = "shortcuts">E</span>SELEZIONA PALLINA🕵</h3>
+            <span class = "shortcuts">Z</span> Elimina Pallina
+        </div>
+    </div>
+
+    <footer>
+        <p>2019-2020 Sviluppato per il corso di Programmazione web - front-end<br>ITS istituti tecnici superiori.<br>Corso di Backed System Integrator</p>
+        <p>
+            <a rel="license"
+            href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img
+            alt="Licenza Creative Commons" style="border-width:0"
+            src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br
+            />Quest'opera è distribuita con Licenza <a rel="license"
+            href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative
+            Commons Attribuzione - Non commerciale - Condividi allo stesso modo 4.0
+            Internazionale</a>.
+        </p>
+        <p>Crediti:<br>Pietro Cipriani<br>Alessio D'oria<br>Alessandro Incorvaia<br>Marco Scalenghe
+    </p>
+    </footer>
+
+    <!--Genera le palline, definisce il loro moto e permette all'utente di
+    interagire con le varie modalità-->
+    <script src="script/generateBall.js"></script>
+</body>
+</html>
